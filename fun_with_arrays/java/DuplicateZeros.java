@@ -1,25 +1,21 @@
 class Solution {
     public void duplicateZeros(int[] arr) {
 
-        int noOfZeros = 0;
-        for(int currentElement : arr){
-            if(currentElement == 0){
-                noOfZeros++;
-            }
-        }
+        int length = arr.length;
+        int newArray[] = arr.clone();
 
-        int newArr [] = new int [arr.length + noOfZeros];
-        int newElement = 0;
-        for(int i = 0;i<arr.length;i++){
-            if(arr[i] != 0){
-                newArr[newElement++] = arr[i];
+        for(int i = 0,j = 0;i < length && j < length ;i++, j++){
+            if(newArray[i] == 0){
+                arr[j]=0;
+                j++;
+                if(j<length){
+
+                    arr[j]=0;
+                }
             } else{
-                newElement = newElement+2;
+                arr[j] = newArray[i];
             }
-        }
-
-        for(int i = 0;i<arr.length ;i++){
-            arr[i]=newArr[i];
         }
     }
+}
 }
