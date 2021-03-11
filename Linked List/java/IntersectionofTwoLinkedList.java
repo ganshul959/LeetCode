@@ -45,6 +45,8 @@ public class Solution {
             if(nodeA.next !=null){  // it will traverse to tail and then assign it to cross head
                 nodeA = nodeA.next;
             }else{
+                // if we try to do nodeA.next  = headB as it should be to join
+                // head but it will make it cyclic and break the rule so we need to jump to one position
                 nodeA = headB;
             }
 
